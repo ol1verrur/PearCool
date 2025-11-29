@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body{
+    font-family: "Inter", sans-serif;
+
+    }
+
+
+.bottom-right-1-image {
+    position: fixed; /* Фиксирует изображение в окне браузера при прокрутке */
+    bottom: 0;       /* Прижимает изображение к нижнему краю */
+    right: 0;        /* Прижимает изображение к правому краю */
+    /* Дополнительные свойства для лучшего отображения: */
+    margin: 10px 240px 31px 10px;    /* Добавляет отступ от краев (опционально) */
+    width: 150px;    /* Устанавливает ширину изображения (опционально, измените по необходимости) */
+    height: auto;    /* Сохраняет пропорции изображения */
+    z-index: 1000;   /* Гарантирует, что изображение будет поверх другого контента */
+}
+
+
+
+
+.bottom-right-fixed-image {
+    position: fixed;
+    bottom: 20px; /* Отступ от нижнего края */
+    right: 20px;  /* Отступ от правого края */
+    /* Дополнительные стили, например, для размера */
+    width: 200px; /* Пример ширины */
+    height: auto; /* Сохранение пропорций */
+    z-index: 1000; /* Гарантирует, что изображение находится поверх других элементов */
+}
+
+.bottom-left-fixed-image {
+    position: fixed;
+    bottom: 0px;  /* Отступ от нижнего края */
+    left: 0px;    /* Отступ от левого края */
+    /* Вы можете настроить размер: */
+    width: 600px;
+    height: auto;
+    z-index: 1000;
+}
+
+
+.wrapper {
+    display:flex;
+    flex-direction:row;
+    height: 50px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    gap: 30px;
+    justify-content:center;
+}
+
+.Note {
+    width: auto;
+    height: auto;
+    text-align: center;
+    align-content:center;
+    font-size: 14px
+}
+
+.Note a:hover{
+    color: #87cefa;
+}
+
+.selected{
+    color: grey;
+   }
+
+
+.wrapper2 {
+    height: 3fr;
+    grid-column-start: 4;
+    grid-column-end: -4;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: r;
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+    grid-auto-rows: 10px;
+    grid-column-gap: 20px;
+    }
+
+.Note2 {
+
+    text-justify: center;
+    text-align: center;
+    padding-top: 50px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.wrapper3 {
+    height: 200px;
+    grid-column-start: 4;
+    grid-column-end: -4;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: r;
+    display: grid;
+    grid-template-columns: 10fr 14fr 10fr;
+    grid-auto-rows: 50px;
+    grid-column-gap: 20px;
+    }
+
+.Note3 {
+
+    text-justify: center;
+    text-align: center;
+    padding-top: 100px;
+    font-size: 14px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.button-container {
+    /* Используем Flexbox для центрирования содержимого контейнера (ссылки) */
+    display: flex;
+    justify-content: center; /* Центрирует ссылку по горизонтали на странице */
+    margin-top: 220px; /* Добавляем небольшой отступ сверху, если нужно */
+}
+
+.blue-button-link {
+    /* Убираем стандартное подчеркивание ссылки */
+    text-decoration: none;
+
+    /* Фон и цвет текста */
+    background-color: #87cefa; /* Светло-голубой цвет из примера */
+    color: white;              /* Белый текст */
+
+    /* Убираем стандартные рамки */
+    border: none;
+
+    /* Задаем размер и отступы */
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 8px; /* Скругление углов */
+
+    /* Добавляем легкую тень */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Используем Grid для идеального центрирования текста */
+    display: grid;
+    place-items: center;
+
+    /* Плавный переход при наведении */
+    transition: background-color 0.3s ease;
+}
+
+.blue-button-link:hover {
+    background-color: #6fbcf0; /* Немного темнее при наведении */
+
+.blured{
+    filter: blur(7px);}
+

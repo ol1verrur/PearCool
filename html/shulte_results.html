@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <div class="wrapper">
+    <div class="Note selected"><a href="http://127.0.0.1:8000/">Главная</a></div>
+
+    <div class="Note"><a href="/shulte">Диагностика</a></div>
+    <div class="Note"><a href=/Samosvet>Тестирование</a></div>
+    <div class="Note"><a href="/shulteAD">Повторная диагностика</a></div>
+    <div class="Note"><a href="/shulte_results">Результат</a></div>
+
+</div>
+
+
+
+
+
+    <meta charset="UTF-8">
+    <title>PearCool</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', path='styles/Стиль.css')}}">
+    <!-- Можно добавить стили, аналогичные тем, что вы использовали в shulte.html -->
+    <style>
+        body { font-family: 'Roboto', Arial, sans-serif; padding: 20px; }
+        .container { max-width: 600px; margin: 50px auto; background: #f8fafc; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(30, 41, 59, 0.1); }
+        h1 { color: #1e293b; text-align: center; }
+        #results-list { list-style-type: none; padding: 0; }
+        #results-list li { background: white; margin: 10px 0; padding: 15px; border-radius: 8px; border-left: 5px solid #2c67f2; display: flex; justify-content: space-between; }
+        #average-time { font-size: 24px; font-weight: bold; color: #10b981; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Сводные результаты таблицы Шульте</h1>
+        <p>Среднее время прохождения всех тестов: <span id="average-time">0.0</span> секунд</p>
+        <button onclick="clearResults()">Очистить историю</button>
+        <h2>История прохождений:</h2>
+        <ul id="results-list"></ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultsList = document.getElementById('results-list');
+            const averageTimeEl = document.getElementById('average-time');
+
+            // Загрузка результатов из LocalStorage
+            let times = JSON.parse(localStorage.getItem('schulteTimes')) || [];
+
+            if (times.length === 0) {
+                resultsList.innerHTML = '<li>Вы еще не прошли ни одного теста.</li>';
+                return;
+            }
+
+            // Отображение списка результатов
+            times.forEach((time, index) => {
+                const li = document.createElement('li');
+                li.textContent = `Тест ${index + 1}:`;
+                const span = document.createElement('span');
+                span.textContent = `${time.toFixed(1)} сек`;
+                li.appendChild(span);
+                resultsList.appendChild(li);
+            });
+
+            // Расчет и отображение среднего времени
+            const totalTime = times.reduce((sum, current) => sum + current, 0);
+            const averageTime = totalTime / times.length;
+            averageTimeEl.textContent = averageTime.toFixed(1);
+        });
+
+        // Функция очистки истории
+        function clearResults() {
+            localStorage.removeItem('schulteTimes');
+            location.reload();
+        }
+    </script>
+</body>
+</html>

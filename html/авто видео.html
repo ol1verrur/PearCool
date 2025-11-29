@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<title>Авто старт видео</title>
+</head>
+<body>
+
+<!-- Видео -->
+    <video class="kraka" width="1280" height="720" controls>
+  <source src="{{url_for('static', path='images/Фиксики.mp4')}}" type="video/mp4">
+  Ваш браузер не поддерживает тег video.
+</video>
+
+<!-- Кнопка для запуска видео -->
+<button id="startBtn">Запустить видео</button>
+
+<script>
+  const video = document.getElementById('kraka');
+  const button = document.getElementById('startBtn');
+
+  button.addEventListener('click', (startBtn) => {
+    video.play(kraka); // запуск видео при нажатии кнопки
+  });
+
+  // Если нужно авто запускать видео сразу после другого события, добавьте его сюда
+  // Например, при загрузке страницы
+  // window.onload = () => {
+  //   video.play();
+  // };
+</script>
+
+</body>
+</html>
